@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: eureka-server  #eureka示例的主机名
+  client:
+    register-with-eureka: false #不把eureka-server本身注册在注册中心里面，不做高可用的情况下设置为false，默认是true
+    fetch-registry: false #eureka-server是用来做注册中心的，不从eureka上来获取服务的注册信息，默认是true
+    service-url: #这个属性是用来指定注册中心的地址的，其它服务要来着注册
+      # service-url是个map
+      # public EurekaClientConfigBean() {
+      #   如果不指定注册中心的地址默认是这个
+      #   this.serviceUrl.put("defaultZone", "http://localhost:8761/eureka/");
+      # }
+      defaultZone: http://localhost:8761/eureka/
